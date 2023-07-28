@@ -1,7 +1,6 @@
 package com.feeltheboard.childartroom
 
 import android.os.Bundle
-import android.widget.Space
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Arrangement
@@ -20,6 +19,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.feeltheboard.childartroom.ui.theme.ChildArtRoomTheme
 
 class MainActivity : ComponentActivity() {
@@ -48,28 +48,41 @@ fun MainSliderLayout() {
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         Surface(
-            modifier = Modifier
-                .fillMaxWidth(),
+            modifier = Modifier.fillMaxWidth(),
             color = MaterialTheme.colorScheme.surface,
-            shape = MaterialTheme.shapes.large
+            shape = MaterialTheme.shapes.large,
         ) {
+            // Image from Database
             // Image(painter = TODO(), contentDescription = null)
-            Text(text = "Child's Image")
         }
         Spacer(modifier = Modifier.padding(bottom = 30.dp))
+        Row(modifier = Modifier.fillMaxWidth()) {
+            Column(
+                modifier = Modifier.weight(1f),
+                horizontalAlignment = Alignment.CenterHorizontally,
+                verticalArrangement = Arrangement.Center
+            ) {
+                Text(
+                    text = "Image Title",
+                    fontSize = 30.sp,
+                    modifier = Modifier
+                        .padding(bottom = 20.dp)
+                )
+                Text(text = "Image Author")
+            }
+        }
+        Spacer(modifier = Modifier.padding(bottom = 10.dp))
         Row(
-            modifier = Modifier
-                .fillMaxWidth(),
+            modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.SpaceEvenly,
             verticalAlignment = Alignment.CenterVertically
         ) {
             Button(onClick = { /*TODO*/ }) {
-                // Icon(painter = TODO(), contentDescription = null)
+                // Icon(painter = TODO(), contentDescription = "Previous")
                 Text(text = "Previous")
             }
-            Text(text = "Name of the Drawing")
             Button(onClick = { /*TODO*/ }) {
-                // Icon(painter = TODO(), contentDescription =null)
+                // Icon(painter = TODO(), contentDescription = "Next")
                 Text(text = "Next")
             }
         }
