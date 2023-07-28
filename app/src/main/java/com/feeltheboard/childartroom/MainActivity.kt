@@ -3,6 +3,7 @@ package com.feeltheboard.childartroom
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -53,13 +54,14 @@ fun MainSliderLayout() {
                 .fillMaxWidth()
                 .padding(30.dp),
             color = MaterialTheme.colorScheme.surface,
-            shape = MaterialTheme.shapes.large,
+            shape = MaterialTheme.shapes.extraSmall,
+            shadowElevation = 3.dp,
         ) {
             Image(
-                painter = painterResource(id = R.drawable.ic_launcher_background),
-                contentDescription = "Image",
+                painter = painterResource(id = R.drawable.familyphoto),
+                contentDescription = "Marina, Melissa and Rafael",
                 modifier = Modifier
-                    .padding(10.dp)
+                    .padding(20.dp)
             )
         }
         Row(modifier = Modifier.fillMaxWidth()) {
