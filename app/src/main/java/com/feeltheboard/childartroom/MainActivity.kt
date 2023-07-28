@@ -51,7 +51,9 @@ fun MainSliderLayout() {
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         Surface(
-            modifier = Modifier.fillMaxWidth(),
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(10.dp),
             color = MaterialTheme.colorScheme.surface,
             shape = MaterialTheme.shapes.large,
         ) {
@@ -59,13 +61,16 @@ fun MainSliderLayout() {
             Image(
                 painter = painterResource(id = R.drawable.ic_launcher_background),
                 contentDescription = "Image",
-                modifier = Modifier.fillMaxWidth()
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(10.dp)
             )
         }
-        Spacer(modifier = Modifier.padding(bottom = 30.dp))
         Row(modifier = Modifier.fillMaxWidth()) {
             Column(
-                modifier = Modifier.weight(1f),
+                modifier = Modifier
+                    .weight(1f)
+                    .padding(10.dp),
                 horizontalAlignment = Alignment.CenterHorizontally,
                 verticalArrangement = Arrangement.Center
             ) {
@@ -73,14 +78,15 @@ fun MainSliderLayout() {
                     text = "Image Title",
                     fontSize = 30.sp,
                     modifier = Modifier
-                        .padding(bottom = 20.dp)
+                        .padding(bottom = 15.dp)
                 )
                 Text(text = "Image Author")
             }
         }
-        Spacer(modifier = Modifier.padding(bottom = 10.dp))
         Row(
-            modifier = Modifier.fillMaxWidth(),
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(10.dp),
             horizontalArrangement = Arrangement.SpaceEvenly,
             verticalAlignment = Alignment.CenterVertically
         ) {
