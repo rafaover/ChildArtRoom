@@ -1,6 +1,5 @@
 package com.feeltheboard.childartroom
 
-import android.media.Image
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -8,7 +7,6 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -53,16 +51,14 @@ fun MainSliderLayout() {
         Surface(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(10.dp),
+                .padding(30.dp),
             color = MaterialTheme.colorScheme.surface,
             shape = MaterialTheme.shapes.large,
         ) {
-            // Image from Database
             Image(
                 painter = painterResource(id = R.drawable.ic_launcher_background),
                 contentDescription = "Image",
                 modifier = Modifier
-                    .fillMaxWidth()
                     .padding(10.dp)
             )
         }
@@ -90,11 +86,24 @@ fun MainSliderLayout() {
             horizontalArrangement = Arrangement.SpaceEvenly,
             verticalAlignment = Alignment.CenterVertically
         ) {
-            Button(onClick = { /*TODO*/ }) {
+            // I want both buttons with the same size and a spacing between them
+            Button(
+                onClick = { /*TODO*/ },
+                modifier = Modifier
+                    .weight(1f)
+                    .padding(end = 10.dp)
+                    .fillMaxWidth(),
+            ) {
                 // Icon(painter = TODO(), contentDescription = "Previous")
                 Text(text = "Previous")
             }
-            Button(onClick = { /*TODO*/ }) {
+            Button(
+                onClick = { /*TODO*/ },
+                modifier = Modifier
+                    .weight(1f)
+                    .padding(start = 10.dp)
+                    .fillMaxWidth(),
+            ) {
                 // Icon(painter = TODO(), contentDescription = "Next")
                 Text(text = "Next")
             }
