@@ -3,7 +3,6 @@ package com.feeltheboard.childartroom
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -12,6 +11,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -96,8 +96,10 @@ fun MainSliderLayout() {
                     .padding(end = 10.dp)
                     .fillMaxWidth(),
             ) {
-                // Icon(painter = TODO(), contentDescription = "Previous")
-                Text(text = "Previous")
+                Icon(
+                    painter = painterResource(id = R.drawable.baseline_navigate_before_24),
+                    contentDescription = "Previous"
+                )
             }
             Button(
                 onClick = { /*TODO*/ },
@@ -106,8 +108,10 @@ fun MainSliderLayout() {
                     .padding(start = 10.dp)
                     .fillMaxWidth(),
             ) {
-                // Icon(painter = TODO(), contentDescription = "Next")
-                Text(text = "Next")
+                Icon(
+                    painter = painterResource(id = R.drawable.baseline_navigate_next_24),
+                    contentDescription = "Next"
+                )
             }
         }
     }
