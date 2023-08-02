@@ -53,6 +53,18 @@ fun MainSliderLayout() {
         2 -> R.drawable.familyphoto3
         else -> R.drawable.familyphoto1
     }
+    val pictureTitle = when(currentPictureIndex){
+        0 -> "Family in Sydney"
+        1 -> "My kingdom"
+        2 -> "The party is On"
+        else -> "Family in Sydney"
+    }
+    val pictureAuthor = when(currentPictureIndex){
+        0 -> "Rafael Moreira"
+        1 -> "Marina Parente"
+        2 -> "Bruna Campelo"
+        else -> "Rafael Moreira"
+    }
 
     Column(
         modifier = Modifier
@@ -86,12 +98,12 @@ fun MainSliderLayout() {
                 verticalArrangement = Arrangement.Center
             ) {
                 Text(
-                    text = "Image Title", // TODO: GooglePhotos Title? Location? Faces?
+                    text = pictureTitle, // TODO: GooglePhotos Title? Location? Faces?
                     fontSize = 30.sp,
                     modifier = Modifier
                         .padding(bottom = 15.dp)
                 )
-                Text(text = "Image Author") // TODO: GooglePhotos User name?
+                Text(text = pictureAuthor) // TODO: GooglePhotos User name?
             }
         }
         Row(
