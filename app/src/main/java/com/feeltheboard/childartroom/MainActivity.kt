@@ -16,6 +16,10 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
@@ -42,6 +46,14 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun MainSliderLayout() {
+    var currentPictureIndex by remember { mutableStateOf(0) }
+    val familyPicture = when(currentPictureIndex){
+        0 -> R.drawable.familyphoto1
+        1 -> R.drawable.familyphoto2
+        2 -> R.drawable.familyphoto3
+        else -> R.drawable.familyphoto1
+    }
+
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -58,9 +70,10 @@ fun MainSliderLayout() {
             shadowElevation = 3.dp,
         ) {
             Image(
-                painter = painterResource(id = R.drawable.familyphoto),
-                contentDescription = "Marina, Melissa and Rafael",
+                painter = painterResource(id = familyPicture),
+                contentDescription = "Picture Selected",
                 modifier = Modifier
+                    .fillMaxWidth()
                     .padding(20.dp)
             )
         }
@@ -73,12 +86,12 @@ fun MainSliderLayout() {
                 verticalArrangement = Arrangement.Center
             ) {
                 Text(
-                    text = "Image Title",
+                    text = "Image Title", // TODO: GooglePhotos Title? Location? Faces?
                     fontSize = 30.sp,
                     modifier = Modifier
                         .padding(bottom = 15.dp)
                 )
-                Text(text = "Image Author")
+                Text(text = "Image Author") // TODO: GooglePhotos User name?
             }
         }
         Row(
@@ -90,7 +103,7 @@ fun MainSliderLayout() {
         ) {
             // I want both buttons with the same size and a spacing between them
             Button(
-                onClick = { /*TODO*/ },
+                onClick = { currentPictureIndex-- },
                 modifier = Modifier
                     .weight(1f)
                     .padding(end = 10.dp)
@@ -102,7 +115,7 @@ fun MainSliderLayout() {
                 )
             }
             Button(
-                onClick = { /*TODO*/ },
+                onClick = { currentPictureIndex++ },
                 modifier = Modifier
                     .weight(1f)
                     .padding(start = 10.dp)
