@@ -118,7 +118,12 @@ fun MainSliderLayout() {
             verticalAlignment = Alignment.CenterVertically
         ) {
             Button(
-                onClick = { currentPictureIndex-- },
+                onClick = {
+                    currentPictureIndex--
+                    if (currentPictureIndex < 0) {
+                        currentPictureIndex = 2
+                    }
+                },
                 modifier = Modifier
                     .weight(1f)
                     .padding(end = 10.dp)
@@ -130,7 +135,12 @@ fun MainSliderLayout() {
                 )
             }
             Button(
-                onClick = { currentPictureIndex++ },
+                onClick = {
+                    currentPictureIndex++
+                    if (currentPictureIndex > 2) {
+                        currentPictureIndex = 0
+                    }
+                          },
                 modifier = Modifier
                     .weight(1f)
                     .padding(start = 10.dp)
