@@ -7,6 +7,7 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -77,8 +78,8 @@ fun MainSliderLayout() {
     ) {
         Surface(
             modifier = Modifier
-                .fillMaxWidth()
-                .padding(30.dp),
+                .fillMaxWidth(0.9f)
+                .fillMaxHeight(0.7f),
             color = MaterialTheme.colorScheme.surface,
             shape = MaterialTheme.shapes.extraSmall,
             shadowElevation = 3.dp,
@@ -87,8 +88,7 @@ fun MainSliderLayout() {
                 painter = painterResource(id = familyPicture),
                 contentDescription = "Picture Selected",
                 modifier = Modifier
-                    .fillMaxWidth()
-                    .size(380.dp)
+                    .size(480.dp)
                     .padding(20.dp),
                 contentScale = ContentScale.Crop
             )
@@ -125,9 +125,8 @@ fun MainSliderLayout() {
                     }
                 },
                 modifier = Modifier
-                    .weight(1f)
                     .padding(end = 10.dp)
-                    .fillMaxWidth(),
+                    .size(80.dp),
             ) {
                 Icon(
                     painter = painterResource(id = R.drawable.baseline_navigate_before_24),
@@ -142,9 +141,8 @@ fun MainSliderLayout() {
                     }
                           },
                 modifier = Modifier
-                    .weight(1f)
                     .padding(start = 10.dp)
-                    .fillMaxWidth(),
+                    .size(80.dp),
             ) {
                 Icon(
                     painter = painterResource(id = R.drawable.baseline_navigate_next_24),
