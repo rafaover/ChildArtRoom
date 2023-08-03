@@ -13,8 +13,10 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Button
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.PlainTooltipBox
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -47,6 +49,7 @@ class MainActivity : ComponentActivity() {
     }
 }
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MainSliderLayout() {
     var currentPictureIndex by remember { mutableStateOf(0) }
@@ -117,37 +120,44 @@ fun MainSliderLayout() {
             horizontalArrangement = Arrangement.SpaceEvenly,
             verticalAlignment = Alignment.CenterVertically
         ) {
-            Button(
-                onClick = {
-                    currentPictureIndex--
-                    if (currentPictureIndex < 0) {
-                        currentPictureIndex = 2
-                    }
-                },
-                modifier = Modifier
-                    .padding(end = 10.dp)
-                    .size(80.dp),
-            ) {
-                Icon(
-                    painter = painterResource(id = R.drawable.baseline_navigate_before_24),
-                    contentDescription = "Previous"
-                )
+            PlainTooltipBox(tooltip = { Text("Previous Picture") })
+            {
+                Button(
+                    onClick = {
+                        currentPictureIndex--
+                        if (currentPictureIndex < 0) {
+                            currentPictureIndex = 2
+                        }
+                    },
+                    modifier = Modifier
+                        .tooltipAnchor()
+                        .padding(end = 10.dp)
+                        .size(80.dp),
+                ) {
+                    Icon(
+                        painter = painterResource(id = R.drawable.baseline_navigate_before_24),
+                        contentDescription = "Previous"
+                    )
+                }
             }
-            Button(
-                onClick = {
-                    currentPictureIndex++
-                    if (currentPictureIndex > 2) {
-                        currentPictureIndex = 0
-                    }
-                          },
-                modifier = Modifier
-                    .padding(start = 10.dp)
-                    .size(80.dp),
-            ) {
-                Icon(
-                    painter = painterResource(id = R.drawable.baseline_navigate_next_24),
-                    contentDescription = "Next"
-                )
+            PlainTooltipBox(tooltip = { Text("Next Picture") }) {
+                Button(
+                    onClick = {
+                        currentPictureIndex++
+                        if (currentPictureIndex > 2) {
+                            currentPictureIndex = 0
+                        }
+                    },
+                    modifier = Modifier
+                        .tooltipAnchor()
+                        .padding(start = 10.dp)
+                        .size(80.dp),
+                ) {
+                    Icon(
+                        painter = painterResource(id = R.drawable.baseline_navigate_next_24),
+                        contentDescription = "Next"
+                    )
+                }
             }
         }
     }
